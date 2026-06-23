@@ -4,12 +4,11 @@ import matplotlib.pyplot as plt
 
 def get_connection():
     try:
-        # Connects to MySQL using latin1 or utf8 to avoid issues with tourviña name
         return pymysql.connect(
             host='localhost',
             user='root',
             password='',
-            db='tourvi\xf1a', # 'tourviña' in latin-1
+            db='tourviña',
             charset='utf8mb4',
             cursorclass=pymysql.cursors.DictCursor
         )
@@ -297,16 +296,9 @@ def requerimiento_6():
             print("\nGenerando gráfico de sectores profesional...")
             fig, ax = plt.subplots(figsize=(13, 9))
             
-            # Curated modern color palette skipping light blue/teal (approx 0.35 to 0.60 in viridis)
+            # Curated modern color palette
             import numpy as np
-            n_viñas = len(viñas)
-            n_half1 = n_viñas // 2
-            n_half2 = n_viñas - n_half1
-            vals = np.concatenate([
-                np.linspace(0.0, 0.32, n_half1),
-                np.linspace(0.62, 0.95, n_half2)
-            ])
-            colors = plt.cm.viridis(vals)
+            colors = plt.cm.viridis(np.linspace(0.1, 0.9, len(viñas)))
             
             # Subtle explosion on all slices for separation
             explode = [0.10] * len(viñas)
