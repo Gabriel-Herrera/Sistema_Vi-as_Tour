@@ -19,7 +19,7 @@ Sistema de gestión para tours en viñas. Permite administrar viajes, clientes, 
 
 1. Clonar el repositorio
 ```bash
-git clone https://github.com/Gabriel-Herrera/Sistema_Vi-as_Tour.git
+git clone https://github.com/Gabriel-Herrera/Sistema_Vinas_Tour.git
 ```
 
 2. Instalar dependencias
